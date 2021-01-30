@@ -60,3 +60,4 @@ Pipfile.lock
 # Common virtualenvs
 .venv/
 venv/
+tags
