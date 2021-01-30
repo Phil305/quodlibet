@@ -1,0 +1,29 @@
+FROM fedora:33
+
+#ENV LANG C.UTF-8
+#ENV PYTHONDONTWRITEBYTECODE 1
+#ENV CI true
+
+# install dependencies
+RUN dnf -y install \
+      cairo-devel \
+      python3-devel \
+      gobject-introspection-devel \
+      cairo-gobject-devel \
+      Xvfb \
+      poetry \
+      && dnf clean all
+
+# install quodlibet from git
+RUN git clone https://github.com/quodlibet/quodlibet.git
+#   # https://github.com/quodlibet/quodlibet/issues/3539#issuecomment-767389459
+#   poetry config virtualenvs.in-project true
+#   poetry install
+#   poetry run pytest (or the other way)
+
+#ARG HOST_USER_ID=5555
+#ENV HOST_USER_ID ${HOST_USER_ID}
+#RUN useradd -u $HOST_USER_ID -ms /bin/bash user
+#
+#USER user
+#WORKDIR /home/user
