@@ -13,7 +13,9 @@ RUN dnf -y install \
       Xvfb \
       poetry \
       git \
-      gdk-pixbuf2 \
+      gdk-pixbuf2 uspend
+      #python3-gobject
+      #gtk3
       && dnf clean all
 
 # install quodlibet from git
